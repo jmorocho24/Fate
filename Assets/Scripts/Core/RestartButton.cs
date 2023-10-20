@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartButton : MonoBehaviour
+public class RestartButton : MonoBehaviour
 {
     public string sceneName;
-    public void changeScene()
+    public void ChangeScene()
     {
+        Debug.Log("Change scene reset button");
         SceneManager.LoadScene(sceneName);
     }
-    
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    
     // Update is called once per frame
     void Update()
     {
