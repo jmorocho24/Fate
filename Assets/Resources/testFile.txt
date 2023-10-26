@@ -1,0 +1,10 @@
+John "Hello World!" list (items -f long), playSong("Intro Song")
+setScene("Classroom" -s 5.5)
+World "Hello, \"Quote Here\" right back at you!"
+narrator "And so ended the tradational 'Hello World' coversation. PlaySong(End, -p 0.5),list(players), saveGame(1 -g all -f simple)
+Rose "I woke up to the sound of chirping blue jays and I savored the smell of darkened flour and melted butter."
+Rose "I took in a sigh of relief, because I knew it was going to be a good day today. I rushed down the stairs to the kitchen when I saw my dad in an apron and my twin brother Ruby was sitting down on a stool next to the table island."
+Asus "Rose come eat your pancake that I drew Woody on."
+Rose "My Dad's name was Asus and I adored because he would always make time to play with us in the arcades and make us pancake art of whatever our favorite movie character was at the time."
+Rose "At the arcades I would ask for the items on the top of the prize rack and he would always give them to me no matter how much they cost."
+Rose "My dad is a geneticists he was very passionate about his job, he tells us everyday what he does in the lab and someday hopes to be the number #1 scientist in the world."

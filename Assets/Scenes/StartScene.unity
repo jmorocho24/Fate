@@ -804,7 +804,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2041192118}
         m_TargetAssemblyTypeName: StartButton, Assembly-CSharp
-        m_MethodName: changeScene
+        m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

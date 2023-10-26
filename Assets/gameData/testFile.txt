@@ -1,0 +1,3 @@
+Rose "Hello World"
+Asus "I like the color pink"
+Narrator "They loved eating pancakes"
