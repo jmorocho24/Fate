@@ -17,7 +17,7 @@ namespace DIALOGUE
         public int preTextLength = 0;
         public string fullTargetText => preText + targetText;
         public enum BuildMethod { instant, typewriter, fade }
-        public BuildMethod buildMethod = BuildMethod.instant;
+        public BuildMethod buildMethod = BuildMethod.typewriter;
         public Color textColor { get { return tmpro.color; } set { tmpro.color = value; } }
         public float speed { get { return baseSpeed + speedMultiplier; } set { speedMultiplier = value; } }
         private const float baseSpeed = 1;

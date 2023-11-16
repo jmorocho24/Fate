@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     public void Pause()
     {
-       pauseMenu.SetActive(false);
+       pauseMenu.SetActive(true);
        Time.timeScale = 0f;
     }
     public void Resume()
