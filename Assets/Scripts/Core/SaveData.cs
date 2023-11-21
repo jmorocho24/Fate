@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-[System.Serializable]
-public class SaveData {
-    public float hp;
-    public float exp;
+public class SaveData : MonoBehaviour
+{ 
+    void Start()
+    {
+        int activescene = SceneManager.GetActiveScene().buildIndex;
+    
+        PlayerPrefs.SetInt("ActiveScene", activescene);
+        Debug.Log("Saved");
+    }
 
     public Position[] positions;
 
@@ -18,4 +24,5 @@ public class SaveData {
     }
 
 }
+
 
