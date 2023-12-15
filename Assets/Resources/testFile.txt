@@ -1,3 +1,8 @@
+Dialogue Line Format
+{n{as cn} {	at x {:y}}{ [l:e{ +l:e}]} "d"} {c(a){, c(a)}}
+Speaker "Dialogue \ "Goes \ " Here " Command(arguments go here)
+PlaySong("Etheral Presence" -v 1 -p 0.3)
+0		9					27
 John "Hello World!" list (items -f long), playSong("Intro Song")
 setScene("Classroom" -s 5.5)
 World "Hello, \"Quote Here\" right back at you! 

@@ -10,9 +10,6 @@ namespace TESTING
         // Start is called before the first frame update
         void Start()
         {
-            //See where these lines of code belong
-            //string line = "Speaker \"Dialogue \\\"goes In\\\" Here!\" Command(arguement here)";
-            //DialogueParser.Parse(line);
             SendFileToParse();
         }
 

@@ -5,7 +5,7 @@ using System.Globalization;
 using UnityEditor;
 namespace DIALOGUE
 {
-    //This is where we actually code the dialogue.
+    //This is where we actually code the dialogue. The type build type.
     public class TextArchitect
     {
         private TextMeshProUGUI tmpro_ui;

@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEditor.Experimental.GraphView;
 
 namespace DIALOGUE
 {
@@ -11,8 +8,8 @@ namespace DIALOGUE
         public DialogueContainer dialogueContainer = new DialogueContainer();
         private TextArchitect architect;
         private ConversationManager conversationManager;
-        
-        public static DialogueSystem instance;
+
+        public static DialogueSystem instance { get; private set; }
 
         public delegate void DialogueSystemEvent();
         public event DialogueSystemEvent onUserPrompt_Next;
@@ -27,9 +24,9 @@ namespace DIALOGUE
             }
             else
                 DestroyImmediate(gameObject);
-            
+
         }
-        
+
         bool _initialized = false;
         private void Initialize()
         {
@@ -39,18 +36,19 @@ namespace DIALOGUE
             architect = new TextArchitect(dialogueContainer.dialogueText);
             conversationManager = new ConversationManager(architect);
         }
-        
+
         public void OnUserPrompt_Next()
         {
             onUserPrompt_Next?.Invoke();
-           
+
         }
         public void ShowSpeakerName(string speakerName = "")
         {
+            //Not accepting nameContainer only nameText
             if (speakerName.ToLower() != "narrator")
                 dialogueContainer.nameContainer.Show(speakerName);
             else
-                HideSpeakerName();    
+                HideSpeakerName();
         }
 
 
@@ -65,7 +63,7 @@ namespace DIALOGUE
             conversationManager.StartConversation(conversation);
         }
 
-        
+
         // Start is called before the first frame update
         void Start()
         {
