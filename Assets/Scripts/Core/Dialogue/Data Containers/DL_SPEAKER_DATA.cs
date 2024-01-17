@@ -12,15 +12,15 @@ public class DL_SPEAKER_DATA
     public Vector2 castPosition;
     public List<(int layer, string expression)> CastExpressions { get; set;  }
 
-    private const string NAMECAST_ID = " as";
-    private const string POSITIONCAST_ID = " at";
+    private const string NAMECAST_ID = " as ";
+    private const string POSITIONCAST_ID = " at ";
     private const string EXPRESSIONCAST_ID = " [";
     private const char AXISDELIMITTER_ID = ':';
-    private const char EXPRESSIONLAYER_JOINER = ';';
-    private const char EXPRESSIONLAYER_DELIMETER = '!';
+    private const char EXPRESSIONLAYER_JOINER = ',';
+    private const char EXPRESSIONLAYER_DELIMETER = ':';
     public DL_SPEAKER_DATA(string rawSpeaker)
     {
-        string pattern = @$"{NAMECAST_ID}|{POSITIONCAST_ID}|{EXPRESSIONCAST_ID.Insert(EXPRESSIONCAST_ID.Length-1, @"\")}";
+        string pattern = @$"{NAMECAST_ID}|{POSITIONCAST_ID}|{EXPRESSIONCAST_ID.Insert(EXPRESSIONCAST_ID.Length-1, @"\")}"; 
         MatchCollection matches = Regex.Matches(rawSpeaker, pattern);
 
         //Populate this data to avoid null references to values
@@ -28,14 +28,13 @@ public class DL_SPEAKER_DATA
         castPosition = Vector2.zero;
         CastExpressions = new List<(int layer, string expression)>();
         //If there are no matches, then this entire line is the speaker name
-        if (matches.Count > 0)
+        if (matches.Count == 0)  
         {
             name = rawSpeaker;
-           
             return;
         }
         //Otherwise isolate the speakerName from the casting data.
-        int index = matches[0].Index;
+        int index = matches[0].Index;       // This is where the error is !!!!
 
         name = rawSpeaker.Substring(0,index);
 
@@ -65,7 +64,7 @@ public class DL_SPEAKER_DATA
             }
             else if (match.Value == EXPRESSIONCAST_ID)
             {
-                startIndex = match.Index + POSITIONCAST_ID.Length;
+                startIndex = match.Index + EXPRESSIONCAST_ID.Length;
                 endIndex = (i < matches.Count - 1) ? matches[i + 1].Index : rawSpeaker.Length;
                 string castExp = rawSpeaker.Substring(startIndex, endIndex - (startIndex + 1));
 

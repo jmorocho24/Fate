@@ -4,10 +4,10 @@ using System.Text;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class DL_COMMAND_DATA : MonoBehaviour
+public class DL_COMMAND_DATA
 {
     public List<Command> commands;
-    public const char COMMANDSPLITTER_ID = '|';
+    public const char COMMANDSPLITTER_ID = ',';
     private const char ARGUMENTSCONTAINER_ID = '('; //???
     public struct Command
     {
