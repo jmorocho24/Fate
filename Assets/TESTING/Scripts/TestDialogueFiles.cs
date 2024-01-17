@@ -19,6 +19,7 @@ public class TestDialogueFiles : MonoBehaviour
 
         foreach (string line in lines)
         {
+            Debug.Log("Start conversation " + line);
             DIALOGUE_LINE dl = DialogueParser.Parse(line);
             for (int i = 0; i < dl.commandData.commands.Count; i++)
             {
