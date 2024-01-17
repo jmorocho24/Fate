@@ -1,6 +1,7 @@
 Dialogue Line Format
 {n{as cn} {	at x {:y}}{ [l:e{ +l:e}]} "d"} {c(a){, c(a)}}
-Speaker "Dialogue \ "Goes \ " Here " Command(arguments go here)
+Speaker "Dialogue \ "Goes \ " Here " Command(args), Command(args)
+playSong("Song Name" -v 1 -p 1)
 PlaySong("Etheral Presence" -v 1 -p 0.3)
 0		9					27
 John "Hello World!" list (items -f long), playSong("Intro Song")

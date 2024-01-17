@@ -1,11 +1,18 @@
-speaker "dialogue here"
-Detective: "This changes everything. {a} We are dealing with a metaphor jjjjaja"
-Partner: "I know blash blash blash.{c} We are trying to find the culprit."
+John "Let's play some music" playVoice("e_d1_v2" -v 1.5), setBackground(Room1 -t "Diagonal Lines" -s 3.5)
+setAccomplishment("A legendary Boombox" true) setCLT(Elen 0:Angle1 1:Intrigued-s 2.3 -l true)
+showScene(false),StopMusic(all -s 1.5)
 
-speaker "dialogue Line 1 {c}Line 2{a}Line 3"
+Elen as ??? "Hello there"
 
-{c}	= clear 
-{a}	= append
-{wc n} = wait clear
-{wa n} = wait append
+Elen as ??? at 1:0 "Hello there"
+
+Elen as ??? [0:Angle1, 1:happy] at "Hello there"
+
+John "Let's play some music!" playSong ("Funky Beats" -v 0.78 -p 1) setMood(chill)
+
+Elen "You have odd taste in music." playVoice("e_d1-v2" -v 1.5) setBackground(Room1 -t "Diagonal Lines" -s 3.5)
+
+setAccomplishment("A legendary Boombox" true), setCLI(Elen 0:Angle1 1:Intrigued -s 2.3 -l true)
+
+showScene(false),StopMusic(all -s 1.5)
 

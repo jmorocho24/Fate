@@ -6,11 +6,12 @@ using UnityEngine;
 namespace DIALOGUE
 {
     [System.Serializable]
-    //The box that holds the name text on screen. Part of the dialogue container  
+    //The box that holds the name text on screen. Part of the dialogue container.
     public class NameContainer : MonoBehaviour
     {
         [SerializeField] private GameObject root;
         [SerializeField] private TextMeshProUGUI nameText;
+
 
         public void Show(string nameToShow = "")
         {
@@ -23,7 +24,6 @@ namespace DIALOGUE
         public void Hide()
         {
             root.SetActive(false);
-
         }
     }
 }

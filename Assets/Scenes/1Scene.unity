@@ -1870,6 +1870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509879273}
   - component: {fileID: 509879274}
+  - component: {fileID: 509879275}
   m_Layer: 5
   m_Name: 'NameContainer '
   m_TagString: Untagged
@@ -1910,6 +1911,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &509879275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509879272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1185f9def233f429dac8478f1e0de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 1075011567}
+  nameText: {fileID: 918969649}
 --- !u!1 &598880832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,8 +2978,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueContainer:
-    nameContainer: {fileID: 0}
+    nameContainer: {fileID: 509879275}
     root: {fileID: 1075011567}
+    nameText: {fileID: 918969649}
     dialogueText: {fileID: 263777702}
 --- !u!1 &1224863007
 GameObject:

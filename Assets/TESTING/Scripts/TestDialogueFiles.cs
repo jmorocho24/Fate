@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using static DL_COMMAND_DATA;
 
 public class TestDialogueFiles : MonoBehaviour
 {
@@ -14,25 +15,18 @@ public class TestDialogueFiles : MonoBehaviour
 
     void StartConversation()
     {
-
         List<string> lines = FileManager.ReadTextAsset(FileToRead);
 
         foreach (string line in lines)
         {
-            if (string.IsNullOrEmpty(line))
-                continue;
-
-            Debug.Log($"Segmenting line '{line}'");
-            DIALOGUE_LINE dLine = DialogueParser.Parse(line);
-
-            int i = 0;
-            foreach(DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment in dLine.dialogue.segments)
+            DIALOGUE_LINE dl = DialogueParser.Parse(line);
+            for (int i = 0; i < dl.commandData.commands.Count; i++)
             {
-                Debug.Log($"Segment [{i++}] = '{segment.dialogue}' [signal={segment.startSignal.ToString()}{(segment.signalDelay > 0 ? $"(segment.signalDelay)" : $"")}]");
+                DL_COMMAND_DATA.Command command = dl.commandData.commands[i];
+                Debug.Log($"Command [{i}] '{command.name}' has arguments [{string.Join(",", command.arguments)}]");
             }
         }
-
-        DialogueSystem.instance.Say(lines);
+        //DialogueSystem.instance.Say(lines);
     }
 }
 
