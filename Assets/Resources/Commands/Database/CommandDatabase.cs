@@ -10,6 +10,7 @@ public class CommandDatabase
     public bool HasCommand(string commandName) => database.ContainsKey(commandName);
 
     public void AddCommand(string commandName, Delegate command){
+        Debug.Log("Hello World AddCommand is working yay");
         if (!database.ContainsKey(commandName)){
             database.Add(commandName, command);
         }
