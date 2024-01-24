@@ -3707,7 +3707,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559201663}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0178f611746f14f45be42f0693d0426d, type: 3}
   m_Name: 
@@ -3720,7 +3720,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559201663}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cdcf76979364004daaeb62193059fd5, type: 3}
   m_Name: 
@@ -3781,7 +3781,7 @@ GameObject:
   - component: {fileID: 1798254178}
   - component: {fileID: 1798254177}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ImageRose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

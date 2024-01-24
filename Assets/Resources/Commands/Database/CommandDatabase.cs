@@ -10,7 +10,6 @@ public class CommandDatabase
     public bool HasCommand(string commandName) => database.ContainsKey(commandName);
 
     public void AddCommand(string commandName, Delegate command){
-        Debug.Log("Hello World AddCommand is working yay");
         if (!database.ContainsKey(commandName)){
             database.Add(commandName, command);
         }
@@ -21,7 +20,7 @@ public class CommandDatabase
 
     public Delegate GetCommand(string commandName){
         if (!database.ContainsKey(commandName)){
-            Debug.LogError($"Command '{commandName}' does not exist in database.");
+            Debug.LogError($"Command '{commandName}' does not exist in the database.");
             return null;
         }
         return database[commandName];
