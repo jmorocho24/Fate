@@ -9,6 +9,7 @@ public class SaveExample : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //The keycode to save and load the game
         if (Input.GetKeyUp(KeyCode.F5))
             SaveGame();
         if (Input.GetKeyUp(KeyCode.L))

@@ -74,10 +74,10 @@ public class CMD_DatabaseExtension_Examples : CMD_DatabaseExtension
 
         //Get the variables I need this would be defined somewhere else.
         Transform character = GameObject.Find("ImageRose").transform;
-        float moveSpeed = 15;
+        float moveSpeed = 200;
 
         //Calculate the current position for the image
-        float targetX = left ? -8 : 8;
+        float targetX = left ? -2600 : 2600;
 
         //Calcalute the current position of the image
         float currentX = character.position.x;

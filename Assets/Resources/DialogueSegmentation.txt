@@ -1,4 +1,4 @@
-print_1p("This is a command running straight from our dialogue file!")
+Rose("I woke up to the sound of chirping blue jays and I savored the smell of darkened flour and melted butter. ")
 
 John "Move Left" moveCharDemo(left)
 

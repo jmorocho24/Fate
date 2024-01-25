@@ -44,7 +44,7 @@ namespace DIALOGUE
                     isEscaped = false;
             }
 
-            //Identify Command Pattern
+            //Identify Command Pattern not working
             Regex commandRegex = new Regex(commandRegexPattern);
             Match match = commandRegex.Match(rawLine);
             int commandStart = -1;

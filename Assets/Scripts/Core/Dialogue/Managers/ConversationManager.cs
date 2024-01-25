@@ -100,7 +100,6 @@ namespace DIALOGUE
                 //It's trying to build line dialogue but right now it's building DL_D
             //}
         }
-
         IEnumerator Line_RunCommands(DIALOGUE_LINE line)
         {
             List<DL_COMMAND_DATA.Command> commands = line.commandData.commands;
@@ -120,7 +119,6 @@ namespace DIALOGUE
                 yield return WaitForDialogueSegmentSignalToBeTriggered(segment);
 
                 yield return BuildDialogue(segment.dialogue, segment.appendText);
-
             }
         }
         IEnumerator WaitForDialogueSegmentSignalToBeTriggered(DL_DIALOGUE_DATA.DIALOGUE_SEGMENT segment) 
