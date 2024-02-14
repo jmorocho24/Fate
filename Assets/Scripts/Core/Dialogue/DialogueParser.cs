@@ -10,10 +10,10 @@ namespace DIALOGUE
 {
     public class DialogueParser
     {
-        private const string commandRegexPattern = @"\\w*[^\s]\(";
+        private const string commandRegexPattern = "\\w*[^\\s]\\(";
         public static DIALOGUE_LINE Parse(string rawLine)
         {
-            Debug.Log($"Parsing line - '{rawLine}'");
+            Debug.Log($"Parsing line -f '{rawLine}'");
 
             (string speaker, string dialogue, string commands) = RipContent(rawLine);
 
