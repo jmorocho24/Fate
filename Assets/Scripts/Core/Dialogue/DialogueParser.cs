@@ -10,6 +10,9 @@ namespace DIALOGUE
 {
     public class DialogueParser
     {
+        //future code
+        //private const string commandRegexPattern = @"[\w\[\]*[^\s]\(";
+        //present code
         private const string commandRegexPattern = "\\w*[^\\s]\\(";
         public static DIALOGUE_LINE Parse(string rawLine)
         {
@@ -55,7 +58,7 @@ namespace DIALOGUE
                 if (dialogueStart == -1 && dialogueEnd == -1)
                     return ("", "", rawLine.Trim());
 
-                return ("", "", rawLine.Trim());
+                //return ("", "", rawLine.Trim());
             }
 
             if (dialogueStart != -1 && dialogueEnd != -1 && (commandStart == -1 || commandStart > dialogueEnd))
