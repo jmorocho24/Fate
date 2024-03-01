@@ -1,4 +1,10 @@
 Dialogue Line Format
+This is a random line of dialogue here.
+Elen "command(arguments go here)"
+Elen "command(This is a thought)"
+Elen "command(This is some dialogue" command (args go here)
+command(more args go here), argCom(yes another one)
+command(This is another one again)"
 {n{as cn} {	at x {:y}}{ [l:e{ +l:e}]} "d"} {c(a){, c(a)}}
 Speaker "Dialogue \ "Goes \ " Here " Command(args), Command(args)
 playSong("Song Name" -v 1 -p 1)

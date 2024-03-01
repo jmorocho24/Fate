@@ -5,22 +5,20 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using System.ComponentModel;
 using UnityEditor.Sprites;
+using Unity.VisualScripting;
 
 namespace DIALOGUE
 {
     public class DialogueParser
     {
-        //future code
-        //private const string commandRegexPattern = @"[\w\[\]*[^\s]\(";
-        //present code
-        private const string commandRegexPattern = "\\w*[^\\s]\\(";
+        private const string commandRegexPattern = @"[\w[\]]*[^\s]\(";
         public static DIALOGUE_LINE Parse(string rawLine)
         {
-            Debug.Log($"Parsing line -f '{rawLine}'");
+            //Debug.Log($"Parsing line -f '{rawLine}'");
 
             (string speaker, string dialogue, string commands) = RipContent(rawLine);
 
-            Debug.Log($"Speaker = '{speaker}'\nDialogue = '{dialogue}'\nCommands = '{commands}'");
+            //Debug.Log($"Speaker = '{speaker}'\nDialogue = '{dialogue}'\nCommands = '{commands}'");
             return new DIALOGUE_LINE(speaker, dialogue, commands);
         }
         private static (string, string, string) RipContent(string rawLine)
@@ -49,18 +47,21 @@ namespace DIALOGUE
 
             //Identify Command Pattern not working
             Regex commandRegex = new Regex(commandRegexPattern);
-            Match match = commandRegex.Match(rawLine);
+            MatchCollection matches = commandRegex.Matches(rawLine);
             int commandStart = -1;
-            if (match.Success)
+            foreach (Match match in matches)
             {
-                commandStart = match.Index;
-
-                if (dialogueStart == -1 && dialogueEnd == -1)
-                    return ("", "", rawLine.Trim());
-
-                //return ("", "", rawLine.Trim());
+                if (match.Index < dialogueStart || match.Index > dialogueEnd)
+                {
+                    commandStart = match.Index;
+                    break;
+                }
             }
+        
+        if(commandStart != -1 && (dialogueStart == -1 && dialogueEnd == -1 ))
+            return ("", "", rawLine.Trim());
 
+            //If we are here then we either have dialogue or a multi word argument in a command. Figure out if this is dialogue
             if (dialogueStart != -1 && dialogueEnd != -1 && (commandStart == -1 || commandStart > dialogueEnd))
             {
                 //we know that we have valid dialogue
@@ -72,7 +73,7 @@ namespace DIALOGUE
             else if (commandStart != -1 && dialogueStart > commandStart)
                 commands = rawLine;
             else
-                speaker = rawLine;
+                dialogue = rawLine;
             
             return (speaker, dialogue, commands);  
         }

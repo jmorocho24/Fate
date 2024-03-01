@@ -1,24 +1,14 @@
+
+print_1p("This is a command running straight from our dialogue file!")
+
 Rose "I woke up to the sound of chirping blue jays and I savored the smell of darkened flour and melted butter. ")
 
-John "Move Left" moveCharDemo(left)
+John "Move Left and then Right." print_1p("Start Moving"), [wait]moveCharDemo(left), [wait]moveCharDemo(right), print_1p("Done Moving")
 
-"Move Right" moveCharDemo(right)
 
-John "Let's play some music" playVoice("e_d1_v2" -v 1.5), setBackground(Room1 -t "Diagonal Lines" -s 3.5)
-setAccomplishment("A legendary Boombox" true) setCLT(Elen 0:Angle1 1:Intrigued-s 2.3 -l true)
-showScene(false),StopMusic(all -s 1.5)
+John "Let's play some music" playSong("Funky Beets" -v 0.75 -p 1), setmood(chill)
 
-Elen as ??? "Hello there"
-
-Elen as ??? at 1:0 "Hello there"
-
-Elen as ??? [0:Angle1, 1:happy] at "Hello there"
-
-John "Let's play some music!" playSong ("Funky Beats" -v 0.78 -p 1) setMood(chill)
-
-Elen "You have odd taste in music." playVoice("e_d1-v2" -v 1.5) setBackground(Room1 -t "Diagonal Lines" -s 3.5)
-
-setAccomplishment("A legendary Boombox" true), setCLI(Elen 0:Angle1 1:Intrigued -s 2.3 -l true)
+Elen "You have odd taste in music." playVoice("e_d1-v2" -v 1.5) setBackground(Room1 -t "Diagonal Lines" -s 2.3 -1 true)
 
 showScene(false),StopMusic(all -s 1.5)
 

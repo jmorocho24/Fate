@@ -1,3 +1,4 @@
+using COMMANDS;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -29,11 +30,13 @@ namespace DIALOGUE
         {
             userPrompt = true;
         }
-        public void StartConversation(List<string> conversation)
+        public Coroutine StartConversation(List<string> conversation)
         {
             StopConversation();
 
             process = dialogueSystem.StartCoroutine(RunningConversation(conversation));
+
+            return process;
         }
 
         public void StopConversation()
@@ -80,7 +83,7 @@ namespace DIALOGUE
             yield return WaitForUserInput();
 
             //Wait for user input 
-            yield return WaitForUserInput();
+            //yield return WaitForUserInput();
             //else
                 //dialogueSystem.HideSpeakerName();
 
@@ -106,8 +109,12 @@ namespace DIALOGUE
             
             foreach(DL_COMMAND_DATA.Command command in commands)
             {
-                CommandManager.instance.Execute(command.name, command.arguments);
+                if (command.waitForCompletion) 
+                    yield return CommandManager.instance.Execute(command.name, command.arguments);
+               else
+                   CommandManager.instance.Execute(command.name, command.arguments);
             }
+            
             yield return null;
         }
         IEnumerator BuildLineSegments(DL_DIALOGUE_DATA line)
