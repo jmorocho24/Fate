@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using CHARACTERS;
 using DIALOGUE;
+using TMPro;
 
 namespace TESTING
 {
     public class TestCharacters : MonoBehaviour
     {
+        public TMP_FontAsset tempFont;
         // Start is called before the first frame update
         void Start()
         {

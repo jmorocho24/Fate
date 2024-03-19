@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CHARACTERS;
+using System;
 
 namespace DIALOGUE
 {
@@ -46,7 +47,6 @@ namespace DIALOGUE
         public void OnUserPrompt_Next()
         {
             onUserPrompt_Next?.Invoke();
-
         }
 
         public void ApplySpeakerDataToDialogueContainer(string speakerName)
@@ -54,9 +54,9 @@ namespace DIALOGUE
             Character character = CharacterManager.instance.GetCharacter(speakerName);
             CharacterConfigData config = character != null ? character.config : CharacterManager.instance.GetCharacterConfig(speakerName);
 
-            ApplySpeakerDataToDataDialogueContainer(config);
+            ApplySpeakerDataToDialogueContainer(config);
         }
-        public void ApplySpeakerDataToDataDialogueContainer(CharacterConfigData config)
+        public void ApplySpeakerDataToDialogueContainer(CharacterConfigData config)
         {
             dialogueContainer.SetDialogueColor(config.dialogueColor);
             dialogueContainer.SetDialogueFont(config.dialogueFont);
@@ -98,5 +98,11 @@ namespace DIALOGUE
         {
 
         }
+
+        /*internal void ApplySpeakerDataToDialogueContainer(CharacterConfigData config)
+        {
+            //throw new NotImplementedException();
+        }
+        */
     }
 }

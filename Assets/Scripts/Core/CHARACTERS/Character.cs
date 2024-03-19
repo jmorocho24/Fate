@@ -2,12 +2,14 @@ using DIALOGUE;
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace CHARACTERS
 {
     public abstract class Character
     {
+        //public TMP_FontAsset tempFont;
         public string name = "";
         public string displayName = "";
         public RectTransform root = null;
@@ -26,10 +28,16 @@ namespace CHARACTERS
         public Coroutine Say(List<string> dialogue)
         {
             dialogueSystem.ShowSpeakerName(displayName);
-            dialogueSystem.ApplySpeakerDataToDataDialogueContainer(config);
+            dialogueSystem.ApplySpeakerDataToDialogueContainer(config);
             return dialogueSystem.Say(dialogue);
         }
 
+        public void SetNameFont(TMP_FontAsset font) => config.nameFont = font;
+        public void SetDialogueFont(TMP_FontAsset font) => config.dialogueFont = font;
+        public void SetNameColor(Color color) => config.nameColor = color;
+        public void SetDialogueColor(Color color) => config.nameColor = color;
+
+        public void UpdateTextCuztomizationsOnScreen() => dialogueSystem.ApplySpeakerDataToDialogueContainer(config);
         public enum CharacterType
         {
             Text, 
