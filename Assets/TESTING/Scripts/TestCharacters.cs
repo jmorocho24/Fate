@@ -32,8 +32,8 @@ namespace TESTING
 
             
 
-            //Elen.SetNameColor(Color.red);
-            //Elen.SetDialogueColor(Color.green);
+            Elen.SetNameColor(Color.red);
+            Elen.SetDialogueColor(Color.green);
             Elen.SetNameFont(tempFont);
             Elen.SetDialogueFont(tempFont);
 

@@ -31,7 +31,6 @@ namespace DIALOGUE
             }
             else
                 DestroyImmediate(gameObject);
-
         }
 
         bool _initialized = false;
@@ -56,6 +55,7 @@ namespace DIALOGUE
 
             ApplySpeakerDataToDialogueContainer(config);
         }
+
         public void ApplySpeakerDataToDialogueContainer(CharacterConfigData config)
         {
             dialogueContainer.SetDialogueColor(config.dialogueColor);
@@ -74,20 +74,18 @@ namespace DIALOGUE
                 HideSpeakerName();
         }
 
-
         public void HideSpeakerName() => dialogueContainer.nameContainer.Hide();
+
         public Coroutine Say(string speaker, string dialogue)
         {
             List<string> conversation = new List<string>() { $"{speaker} \"{dialogue}\"" };
-
             return Say(conversation);
         }
         public Coroutine Say(List<string> conversation)
         {
             return conversationManager.StartConversation(conversation);
         }
-
-
+        
         // Start is called before the first frame update
         void Start()
         {
