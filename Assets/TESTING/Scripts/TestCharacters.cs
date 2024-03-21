@@ -16,7 +16,6 @@ namespace TESTING
             StartCoroutine(Test());
         }
 
-        // Update is called once per frame
         IEnumerator Test()
         {
             Character Rose = CharacterManager.instance.CreateCharacter("Rose");
@@ -28,17 +27,26 @@ namespace TESTING
                 "Hi, there!",
                 "My name is Elen",
                 "What's your name?",
-                "Oh, [wa 1] that's a very nice."
+                "Oh,{wa 1} that's a very nice."
             };
-            yield return Rose.Say(lines);
+
+            
+
+            //Elen.SetNameColor(Color.red);
+            //Elen.SetDialogueColor(Color.green);
+            Elen.SetNameFont(tempFont);
+            Elen.SetDialogueFont(tempFont);
+
+            yield return Elen.Say(lines);
 
             lines = new List<string>()
             {
-                "I am Adam.",
-                "More lines {c}Here."
+                "I am Rose.",
+                "More lines{c}Here."
             };
 
-            yield return Rose.Say (lines);
+            yield return Rose.Say(lines);
+
             yield return Ben.Say("This is a line that I want to say.{a} It is a simple line.");
             
             Debug.Log("Finished");

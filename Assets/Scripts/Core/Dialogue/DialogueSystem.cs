@@ -62,6 +62,7 @@ namespace DIALOGUE
             dialogueContainer.SetDialogueFont(config.dialogueFont);
             dialogueContainer.nameContainer.SetNameColor(config.nameColor);
             dialogueContainer.nameContainer.SetnameFont(config.nameFont);
+            Debug.Log($"font change{config.dialogueColor} {config.dialogueFont} {config.nameColor}{config.nameFont}");
         }
 
         public void ShowSpeakerName(string speakerName = "")

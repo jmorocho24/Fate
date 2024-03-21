@@ -16,6 +16,11 @@ namespace CHARACTERS
         {
             instance = this;
         }
+        public CharacterConfigData GetCharacterConfig(string characterName)
+        {
+            return config.GetConfig(characterName);
+        }
+
 
         public Character GetCharacter(string characterName, bool createIfDoesNotExist = false)
         {
@@ -55,19 +60,7 @@ namespace CHARACTERS
             return result;
 
         }
-
-        public CharacterConfigData GetCharacterConfig(string characterName)
-        {
-            return config.GetConfig(characterName);
-        }
-        
-
-        // Does this one really exists
-        public CharacterConfigData GetCharacterData(string characterName)
-        {
-            return config.GetConfig(characterName);
-        }
-        
+  
 
         
         private Character CreateCharacterFromInfo(CHARACTER_INFO info)
