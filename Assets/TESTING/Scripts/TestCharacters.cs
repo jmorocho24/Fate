@@ -24,10 +24,12 @@ namespace TESTING
 
             List<string> lines = new List<string>()
             {
-                "Hi, there!",
-                "My name is Elen",
-                "What's your name?",
-                "Oh,{wa 1} that's a very nice."
+                //internal dialogue not trying to do conversations atm 
+                "I woke up to the sound of chirping blue jays and I savored the smell of darkened flour and melted butter.",
+                "I took in a sigh of relief, because I knew it was going to be a good day today.",
+                " I rushed down the stairs to the kitchen when I saw my dad in an apron and my twin brother Ruby was sitting down on a stool next to the table island.",
+                " My dad gave me a warm- hearted look and I replied with a loving smile back.",
+                " Oh,{wa 1} that's a very nice."
             };
 
             
