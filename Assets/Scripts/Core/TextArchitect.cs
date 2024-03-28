@@ -94,6 +94,7 @@ namespace DIALOGUE
                     tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
                     break;
                 case BuildMethod.fade:
+                    tmpro.ForceMeshUpdate();
                     break;
             }
 
