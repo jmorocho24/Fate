@@ -34,12 +34,12 @@ namespace TESTING
 
             
 
-            Elen.SetNameColor(Color.red);
-            Elen.SetDialogueColor(Color.green);
-            Elen.SetNameFont(tempFont);
+            Rose.SetNameColor(Color.red);
+            Rose.SetDialogueColor(Color.green);
+            Rose.SetNameFont(tempFont);
             Elen.SetDialogueFont(tempFont);
 
-            yield return Elen.Say(lines);
+            yield return Rose.Say(lines);
 
             lines = new List<string>()
             {
