@@ -12,6 +12,12 @@ namespace CHARACTERS
         
         private CharacterConfigSO config => DialogueSystem.instance.config.characterConfigurationAsset;
 
+        private const string CHARACTER_NAME_ID = "<charname>";
+        
+        private string characterRootPath => $"Characters/{CHARACTER_NAME_ID)";
+        
+        private string characterPrefabPath => $"(characterRootPath)/Character = [{CHARACTER_NAME_ID}]";
+       
         private void Awake()
         {
             instance = this;
@@ -57,17 +63,41 @@ namespace CHARACTERS
 
             result.config = config.GetConfig(characterName);
 
+            result.prefab = GetPrefabCharacter(characterName);
+            
             return result;
-
         }
   
 
+        private GameObject GetPrefabForCharacter(string characterName)
+        {
+            string prefabPath = FormatCharacterPath(characterPrefabPath, characterName);  
+            return Resources.Load<GameObject>(prefabPath)
+        }
+
+        private string FormatCharacterPath (string path, string characterName => path.Replace[CHARACTER_NAME_ID, characterName);
         
         private Character CreateCharacterFromInfo(CHARACTER_INFO info)
         {
             CharacterConfigData config = info.config;
+            switch(config.CharacterType)
+            {
+                case Character.CharacterType.Text;
+                    return new Character_Sprite(info.name, config);
+                    
+                case Character.CharacterType.Sprite:
+                case Character.CharacterType.SpriteSheet:
+                    return new Character_Sprite(info.name, config);
 
-            if (config.charcaterType == Character.CharacterType.Text)
+                case Character.CharacterType Live2D:
+                return new Character_Live2D(info.name, config);
+
+                case Character.CharacterType.Model3D
+                return new Character_Model3D(info.name, config);
+
+                default:
+                    return null;
+            /*if (config.charcaterType == Character.CharacterType.Text)
                 return new Character_Text(info.name, config);
 
             if (config.charcaterType == Character.CharacterType.Sprite || config.charcaterType == Character.CharacterType.SpriteSheet )
@@ -80,6 +110,7 @@ namespace CHARACTERS
                 return new Character_Model3D(info.name, config);
 
             return null;
+            */
 
         }
         private class CHARACTER_INFO
@@ -87,6 +118,7 @@ namespace CHARACTERS
             public string name = "";
 
             public CharacterConfigData config = null;
+            public GameObject prefab
         }
     }
 }
