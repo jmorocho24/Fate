@@ -21,11 +21,15 @@ namespace CHARACTERS
         public bool isRevealing => co_Revealing != null;
         public bool isHiding => co_Revealing != null;
         public virtual bool isVisible == false; 
-        public Character(string name, CharacterConfigData config)
+        public Character(string name, CharacterConfigData config, GameObject prefab)
         {
             this.name = name;
             displayName = name;
             this.config = config;
+            if (prefab != null)
+            {
+                GameObject ob = Object.Instantiate(prefab, )
+            }
         }
 
         public Coroutine Say(string dialogue) => Say(new List<string> { dialogue });
