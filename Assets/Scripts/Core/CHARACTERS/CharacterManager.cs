@@ -13,11 +13,8 @@ namespace CHARACTERS
         private CharacterConfigSO config => DialogueSystem.instance.config.characterConfigurationAsset;
 
         private const string CHARACTER_NAME_ID = "<charname>";
-        
-        private string characterRootPath => $"Characters/{CHARACTER_NAME_ID)";
-        
-        private string characterPrefabPath => $"(characterRootPath)/Character = [{CHARACTER_NAME_ID}]";
-       
+        private string characterRootPath => $"/Characters/[{CHARACTER_NAME_ID}";
+        private string characterPreabPath => $"{characterRootPath}/Character = [{CHARACTER_NAME_ID}]";
         private void Awake()
         {
             instance = this;
@@ -63,7 +60,7 @@ namespace CHARACTERS
 
             result.config = config.GetConfig(characterName);
 
-            result.prefab = GetPrefabCharacter(characterName);
+            result.prefab = GetPrefabForCharacter(characterName);
             
             return result;
         }
@@ -71,54 +68,56 @@ namespace CHARACTERS
 
         private GameObject GetPrefabForCharacter(string characterName)
         {
-            string prefabPath = FormatCharacterPath(characterPrefabPath, characterName);  
-            return Resources.Load<GameObject>(prefabPath)
+            string prefabPath = FormatCharacterPath(characterPreabPath, characterName);
+            return Resources.Load<GameObject>(prefabPath);
         }
 
-        private string FormatCharacterPath (string path, string characterName => path.Replace[CHARACTER_NAME_ID, characterName);
-        
+        private string FormatCharacterPath (string path, string characterName) => path.Replace(CHARACTER_NAME_ID, characterName);
+
         private Character CreateCharacterFromInfo(CHARACTER_INFO info)
         {
             CharacterConfigData config = info.config;
-            switch(config.CharacterType)
+
+            switch(config.charcaterType)
             {
-                case Character.CharacterType.Text;
-                    return new Character_Sprite(info.name, config);
-                    
+                case Character.CharacterType.Text:
+                    return new Character_Sprite(info.name, config, info.prefab);
+
                 case Character.CharacterType.Sprite:
                 case Character.CharacterType.SpriteSheet:
-                    return new Character_Sprite(info.name, config);
+                    return new Character_Sprite(info.name, config, info.prefab);
 
-                case Character.CharacterType Live2D:
-                return new Character_Live2D(info.name, config);
+                case Character.CharacterType.Live2D:
+                    return new Character_Live2D(info.name, config, info.prefab);
 
-                case Character.CharacterType.Model3D
-                return new Character_Model3D(info.name, config);
+                case Character.CharacterType.Model3D:
+                    return new Character_Model3D(info.name, config, info.prefab);
 
                 default:
                     return null;
-            /*if (config.charcaterType == Character.CharacterType.Text)
-                return new Character_Text(info.name, config);
+                    /*if (config.charcaterType == Character.CharacterType.Text)
+                        return new Character_Text(info.name, config);
 
-            if (config.charcaterType == Character.CharacterType.Sprite || config.charcaterType == Character.CharacterType.SpriteSheet )
-                return new Character_Sprite(info.name, config);
+                    if (config.charcaterType == Character.CharacterType.Sprite || config.charcaterType == Character.CharacterType.SpriteSheet )
+                        return new Character_Sprite(info.name, config);
 
-            if (config.charcaterType == Character.CharacterType.Live2D)
-                return new Character_Live2D(info.name, config);
+                    if (config.charcaterType == Character.CharacterType.Live2D)
+                        return new Character_Live2D(info.name, config);
 
-            if (config.charcaterType == Character.CharacterType.Model3D)
-                return new Character_Model3D(info.name, config);
+                    if (config.charcaterType == Character.CharacterType.Model3D)
+                        return new Character_Model3D(info.name, config);
 
-            return null;
-            */
+                    return null;
+                    */
 
+            }
         }
         private class CHARACTER_INFO
         {
             public string name = "";
 
             public CharacterConfigData config = null;
-            public GameObject prefab
+            public GameObject prefab;
         }
     }
 }

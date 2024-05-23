@@ -7,7 +7,7 @@ namespace CHARACTERS
     public class Character_Sprite : Character
     {
 
-        public Character_Sprite(string name, CharacterConfigData config) : base(name, config) 
+        public Character_Sprite(string name, CharacterConfigData config, GameObject prefab) : base(name, config, prefab) 
         {
             Debug.Log($"Created Sprite Character: '(name)'");
         }

@@ -13,7 +13,7 @@ namespace CHARACTERS
         public string displayName = "";
         public RectTransform root = null;
         public CharacterConfigData config;
-        protected CharacterManager manager== CharacterManager instance; 
+        protected CharacterManager manager == CharacterManager instance; 
         public DialogueSystem dialogueSystem => DialogueSystem.instance;
 
         //Coroutines 
@@ -28,7 +28,10 @@ namespace CHARACTERS
             this.config = config;
             if (prefab != null)
             {
-                GameObject ob = Object.Instantiate(prefab, )
+                GameObject ob = Object.Instantiate(prefab, manager.characterPanel);
+                ob.SetActive(true);
+                root  = ob.GetComponent<RectTransform>();
+                Animator animator = root.GetComponentInChildren<Animator>();
             }
         }
 

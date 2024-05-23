@@ -10,14 +10,17 @@ namespace TESTING
     public class TestCharacters : MonoBehaviour
     {
         public TMP_FontAsset tempFont;
+        
         // Start is called before the first frame update
         void Start()
         {
+            Character Stella = CharacterManager.instance.CreateCharacter("Stella");
             StartCoroutine(Test());
         }
 
         IEnumerator Test()
         {
+            return null;
             Character Rose = CharacterManager.instance.CreateCharacter("Rose");
             Character Elen = CharacterManager.instance.CreateCharacter("Elen");
             Character Ben = CharacterManager.instance.CreateCharacter("Benjamin");
